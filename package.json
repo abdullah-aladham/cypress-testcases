@@ -1,0 +1,20 @@
+{
+  "name": "testproj",
+  "version": "1.0.0",
+  "description": "general testing project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "testing",
+    "cypress"
+  ],
+  "author": "Abdullah Aladham",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "cypress": "^13.14.1",
+    "latest": "^0.2.0"
+  }
+}
