@@ -53,7 +53,8 @@ const strRand=(Math.floor(Math. random()*2+1)).toString();
   })
   it('Fails, because the fields are blank',()=>{
     cy.visit('https://facebook.com/')
-    cy.get("button[name='websubmit']").click()
+    cy.get('a[data-testid="open-registration-form-button"]').click();
+    cy.get("button[name='websubmit']").should('be.visible').click()
   })
   it('Fails, because it didnt submit the data',()=>{
     cy.visit('https://facebook.com/')
@@ -66,6 +67,11 @@ const strRand=(Math.floor(Math. random()*2+1)).toString();
     cy.get('select[id="month"]').select(Math. floor(Math. random()*12)  )
     cy.get('select[id="year"]').select(Math.floor(Math. random()*(2024-1905) + 1))
     cy.get('input[type="radio"]').check(strRand);
+  })
+  it('fails because it tries to click on signup without clicking create account',()=>{
+    cy.visit('https://facebook.com/')
+    cy.get("button[name='websubmit']").click()
+
   })
 })
 // function randombetween(min,max){
