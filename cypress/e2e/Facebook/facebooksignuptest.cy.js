@@ -1,5 +1,5 @@
 import {faker} from "@faker-js/faker"
-describe('template spec', () => {
+describe('Signup TestSuite', () => {
 const fname=faker.person.firstName();
 const lname=faker.person.lastName();
 const pass=faker.internet.password();
@@ -73,6 +73,7 @@ const strRand=(Math.floor(Math. random()*2+1)).toString();
     cy.get("button[name='websubmit']").click()
 
   })
+  
 })
 // function randombetween(min,max){
 //   let step1=max-min+1;
