@@ -18,22 +18,54 @@ const strRand=(Math.floor(Math. random()*2+1)).toString();
     cy.get('select[id="year"]').select(Math.floor(Math. random()*(2024-1905) + 1))
     cy.get('input[type="radio"]').check(strRand);
     cy.get("button[name='websubmit']").click()
-    //  cy.get('span[class="_5k_2 _5dba"] input[type="radio"]')
-    //  .should('be.visible')
-    //  .and('have.length',3)
-    //  .then(($items) =>{
-    //   return Cypress._.sampleSize($items.toArray,3)
-    //  }) 
-    //  .should('have.length',3)
-    //  .click({multiple:false })
-    //  cy.get('span input[type="radio"]:checked').should(
-    //   'have.length',
-    //   1
-    //  )
+    
    
     
 
 
+  })
+  it('Fails to fill all fields form data',()=>{
+    cy.visit('https://facebook.com/')
+    cy.get('a[data-testid="open-registration-form-button"]').click();
+    cy.get('input[name="firstname"]').type(fname)
+    cy.get('input[name="lastname"]').type(lname)
+    cy.get('input[name="reg_email__"]').type(mail)
+    cy.get('input[name="reg_passwd__"').type(pass)
+    cy.get('select[id="day"]').select(Math. floor(Math. random()*31) + 1 )
+    cy.get('select[id="month"]').select(Math. floor(Math. random()*12)  )
+    cy.get('select[id="year"]').select(Math.floor(Math. random()*(2024-1905) + 1))
+    //cy.get('input[type="radio"]').check(strRand);
+    cy.get("button[name='websubmit']").click()
+
+  })
+  it('Fails to give appropriate data',()=>{
+    cy.visit('https://facebook.com/')
+    cy.get('a[data-testid="open-registration-form-button"]').click();
+    cy.get('input[name="firstname"]').type(fname)
+    cy.get('input[name="lastname"]').type(lname)
+    cy.get('input[name="reg_email__"]').type(mail)
+    cy.get('input[name="reg_passwd__"').type(pass)
+    cy.get('select[id="day"]').select(Math. floor(Math. random()*31) + 1 )
+    cy.get('select[id="month"]').select(Math. floor(Math. random()*12)  )
+    cy.get('select[id="year"]').select(Math.floor(Math. random()*(2024-1905) + 1))
+    cy.get('input[type="radio"]').check(strRand);
+    cy.get("button[name='websubmit']").click()
+  })
+  it('Fails, because the fields are blank',()=>{
+    cy.visit('https://facebook.com/')
+    cy.get("button[name='websubmit']").click()
+  })
+  it('Fails, because it didnt submit the data',()=>{
+    cy.visit('https://facebook.com/')
+    cy.get('a[data-testid="open-registration-form-button"]').click();
+    cy.get('input[name="firstname"]').type(fname)
+    cy.get('input[name="lastname"]').type(lname)
+    cy.get('input[name="reg_email__"]').type(mail)
+    cy.get('input[name="reg_passwd__"').type(pass)
+    cy.get('select[id="day"]').select(Math. floor(Math. random()*31) + 1 )
+    cy.get('select[id="month"]').select(Math. floor(Math. random()*12)  )
+    cy.get('select[id="year"]').select(Math.floor(Math. random()*(2024-1905) + 1))
+    cy.get('input[type="radio"]').check(strRand);
   })
 })
 // function randombetween(min,max){
