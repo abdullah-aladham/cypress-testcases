@@ -1,0 +1,14 @@
+describe('Login-TestSuite',()=>{
+    it('Pases',()=>{
+        cy.visit("https://practice.expandtesting.com/login")
+        cy.get("input[id='username']").type("practice")
+        cy.get("input[id='password']").type("SuperSecretPassword!")
+        cy.get("button[type='submit']").click();
+    })
+    it('fails',()=>{
+        cy.visit("https://practice.expandtesting.com/login")
+        cy.get("input[id='username']").type("practice")
+        cy.get("input[id='password']").type("SuperSecretPassword!")
+        cy.get("button[type='submit']").click();
+    })
+})
